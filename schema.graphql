@@ -5,6 +5,7 @@ type Proposal @entity {
   hash: String
   voteThreshold: String
   block: BigInt
+  voteHistory_p: [VoteHistory] @derivedFrom(field: "proposalHash")
 }
 type VoteHistory @entity {
   id: ID!
@@ -18,4 +19,5 @@ type VoteHistory @entity {
 type Councillor @entity {
   id: ID!
   numberOfVotes: Int
+  voteHistory_c: [VoteHistory] @derivedFrom(field: "councillor")
 }
